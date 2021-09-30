@@ -4,10 +4,11 @@ module Api
 
       def create
         reservation =  Reservation.new(reservation_params)
+
         if reservation.save
           render json: reservation, status: 201
         else
-          render error: reservation.errors, status: 422
+          render json: { :errors => reservation.errors.full_messages }, status: 422
         end
       end
       

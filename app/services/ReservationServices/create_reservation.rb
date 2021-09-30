@@ -11,7 +11,7 @@ module ReservationServices
       if reservation.save
         OpenStruct.new(success?: true, payload: reservation)
       else
-        OpenStruct.new(success?: false, payload: reservation.errors)
+        OpenStruct.new(success?: false, payload: { errors: reservation.errors.full_messages })
       end
     end
   end

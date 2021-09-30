@@ -8,7 +8,7 @@ module Api
         if create_reservation.success?
           render json: create_reservation.payload, status: 201
         else
-          render error: create_reservation.payload[:error], status: 422
+          render json: { :errors => create_reservation.payload[:errors] } , status: 422
         end
       end
       
