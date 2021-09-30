@@ -1,5 +1,5 @@
 module ReservationServices
-  class AddProduct
+  class CreateReservation
     def call(params)
       save_reservation(params)
     end

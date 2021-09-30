@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe '/api/v1/so_reservations', :type => :request do
-  describe 'POST /api/v1/so_reservations' do
+RSpec.describe '/api/v1/reservations', :type => :request do
+  describe 'POST /api/v1/reservations' do
     subject(:request_call) do
-        post '/api/v1/so_reservations', params: {
+        post '/api/v1/reservations', params: {
             reservation: {
               start_time: DateTime.now,
               customer_id: customer.id,
