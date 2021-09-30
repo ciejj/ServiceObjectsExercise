@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       resources :reservations, only: [:create]
       resources :so_reservations, only: [:create]
+      resources :monads_reservations, only: [:create]
     end
   end
 end
