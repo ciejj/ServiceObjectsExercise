@@ -16,7 +16,7 @@ RSpec.shared_examples 'reservation request', type: :request do
     let(:table) { create(:table, seats: 2) }
 
     context 'when reservation params are valid' do
-      let(:reservation_date) { 10.days.from_now }
+      let(:reservation_date) { (Reservation::MINIMUN_OFFSET+1.day).from_now }
       let(:number_of_people) { table.seats - 1 }
       
       before do
@@ -29,7 +29,7 @@ RSpec.shared_examples 'reservation request', type: :request do
     end
 
     context 'when the cusomer is invalid' do
-      let(:reservation_date) { 10.days.from_now }
+      let(:reservation_date) { (Reservation::MINIMUN_OFFSET+1.day).from_now }
       let(:number_of_people) { table.seats - 1 }
 
       before do
@@ -48,7 +48,7 @@ RSpec.shared_examples 'reservation request', type: :request do
 
     
     context 'when the table is invalid' do
-      let(:reservation_date) { 10.days.from_now }
+      let(:reservation_date) { (Reservation::MINIMUN_OFFSET+1.day).from_now }
       let(:number_of_people) { table.seats - 1 }
 
       before do
@@ -84,7 +84,7 @@ RSpec.shared_examples 'reservation request', type: :request do
     end
 
     context 'when the number of people is greater than seats at the table' do
-        let(:reservation_date) { 10.days.from_now }
+        let(:reservation_date) { (Reservation::MINIMUN_OFFSET+1.day).from_now }
         let(:number_of_people) { table.seats + 1 }
   
         before do
