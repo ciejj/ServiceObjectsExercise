@@ -3,12 +3,12 @@ module Api
     class SoReservationsController < ApplicationController
 
       def create
-        create_reservation = ReservationServices::CreateReservation.new.call(reservation_params)
+        result = ReservationServices::CreateReservation.new.call(reservation_params)
 
-        if create_reservation.success?
-          render json: create_reservation.payload, status: 201
+        if result.success?
+          render json: result.payload, status: 201
         else
-          render json: { :errors => create_reservation.payload[:errors] } , status: 422
+          render json: { :errors => result.payload[:errors] } , status: 422
         end
       end
       
