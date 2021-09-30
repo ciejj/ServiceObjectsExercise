@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   temp_name = Faker::Name.name
 

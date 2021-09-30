@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'dry/monads'
 
 module ReservationServices
   class CreateReservationWithMonads
-  include Dry::Monads[:result, :do]
+    include Dry::Monads[:result, :do]
 
     def call(params)
       reservation = yield save_reservation(params)

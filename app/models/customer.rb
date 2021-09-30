@@ -1,6 +1,8 @@
-class Customer < ApplicationRecord
-    has_many :reservations
+# frozen_string_literal: true
 
-    validates :name, presence: true
-    validates :email, presence: true
+class Customer < ApplicationRecord
+  has_many :reservations
+
+  validates :name, presence: true
+  validates :email, presence: true
 end

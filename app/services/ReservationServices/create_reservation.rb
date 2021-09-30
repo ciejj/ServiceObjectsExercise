@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ReservationServices
   class CreateReservation
     def call(params)

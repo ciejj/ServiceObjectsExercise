@@ -1,17 +1,18 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class MonadsReservationsController < ApplicationController
-
       def create
         result = ReservationServices::CreateReservationWithMonads.new.call(reservation_params)
 
         if result.success?
-          render json: result.value!, status: 201
+          render json: result.value!, status: :created
         else
-          render json: { :errors => result.failure } , status: 422
+          render json: { errors: result.failure }, status: :unprocessable_entity
         end
       end
-      
+
       private
 
       def reservation_params
@@ -20,5 +21,3 @@ module Api
     end
   end
 end
-
-

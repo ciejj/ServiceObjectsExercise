@@ -1,6 +1,8 @@
-class Table < ApplicationRecord
-    has_many :reservations
+# frozen_string_literal: true
 
-    validates :number, presence: true
-    validates :seats, presence: true
+class Table < ApplicationRecord
+  has_many :reservations
+
+  validates :number, presence: true
+  validates :seats, presence: true
 end
